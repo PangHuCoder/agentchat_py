@@ -2,12 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+if __name__ == "__main__":
+    import uvicorn
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+    uvicorn.run("agentchat.main:app", host="0.0.0.0", port=7860)

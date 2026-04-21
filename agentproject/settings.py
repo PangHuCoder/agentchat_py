@@ -9,37 +9,26 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     """应用配置类"""
-    
     # 服务配置
     server: dict = {}
-    
     # MySQL 配置
     mysql: dict = {}
-    
     # Redis 配置
     redis: dict = {}
-    
     # Elasticsearch 配置
     elasticsearch: dict = {}
-    
     # Milvus 配置
     milvus: dict = {}
-    
     # Embedding 配置
     embedding: dict = {}
-    
     # MinIO 配置
     minio: dict = {}
-    
     # 文档处理配置
     document: dict = {}
-    
     # 检索配置
     retrieval: dict = {}
-    
     # 日志配置
     logging: dict = {}
-    
     class Config:
         arbitrary_types_allowed = True
 
