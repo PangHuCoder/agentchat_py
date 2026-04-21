@@ -1,0 +1,99 @@
+# Python RAG Service 配置文件
+
+# 服务配置
+server:
+  host: "0.0.0.0"
+  port: 8000
+  project_name: "RAG Knowledge System"  # 项目名称
+  version: "1.0.0"  # 服务版本号
+  debug: false
+
+# MySQL 数据库配置
+mysql:
+  host: "192.168.1.67"
+  port: 3306
+  database: "ruoyi-vue-pro"
+  username: "root"
+  password: "Fgeet_2023"
+  charset: "utf8mb4"
+  pool_size: 10
+  max_overflow: 20
+
+# Redis 配置
+redis:
+  host: "192.168.1.67"
+  port: 6379
+  database: 0
+  password: "Fgeet_2023"
+  decode_responses: true
+  max_connections: 50
+
+# Elasticsearch 配置
+elasticsearch:
+  host: "192.168.1.67"
+  port: 9201
+  api_key: "GB-EvnnR79X-ljvw6lYI"
+  url: "http://192.168.1.67:9201/"
+  connect_timeout: 10
+  socket_timeout: 60
+  max_retries: 3
+
+# Milvus 配置
+milvus:
+  host: "192.168.1.67"
+  port: 19530
+  username: "root"
+  password: "Milvus"
+  connect_timeout: 10000
+  keep_alive_time: 60000
+
+# Embedding 配置
+embedding:
+  base_url: "http://192.168.1.70:11434"
+  model: "bge-small-zh-v1.5"
+  model_path: "BAAI/bge-small-zh-v1.5"  # HuggingFace 模型路径
+  dimension: 512
+  device: "cpu"  # cpu 或 cuda
+  normalize_embeddings: true
+
+# MinIO 配置
+minio:
+  endpoint: "192.168.1.67:9000"
+  access_key: "W1wDA8ETRFmCVuPbG7Z4"
+  secret_key: "G4ojsiycZodO9lidggW0leIihfuzngYRhEtaloWK"
+  bucket_name: "knowledge-base"
+  secure: false
+  imgurl: "http://192.168.1.67:9000"
+
+# 文档处理配置
+document:
+  # 文档解析超时时间（秒）
+  parse_timeout: 30
+  # 文档切片配置
+  chunk_size: 1000
+  chunk_overlap: 100
+  min_chunk_size: 200
+  max_chunk_size: 1000
+  # 批量处理配置
+  batch_size: 100
+
+# 检索配置
+retrieval:
+  # 混合检索权重
+  vector_weight: 0.6
+  fulltext_weight: 0.4
+  # 默认返回结果数
+  default_top_k: 5
+  max_top_k: 20
+  # 最小相似度分数
+  min_score: 0.3
+  # 检索超时时间（毫秒）
+  search_timeout: 500
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/rag_service.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
